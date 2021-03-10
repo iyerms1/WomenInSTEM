@@ -1,0 +1,205 @@
+import time
+print ("Welcome to the Women in STEM quiz!!!")
+print ("")
+pauseTime =0.5
+score=[]
+# Above array to hold score
+
+time.sleep(pauseTime) # so the question doesn't come up right away
+print ("Question 1:")
+time.sleep(0.5)
+print ("True or False: The first programmer was a man.")
+
+ans1 = input()
+
+
+  # The if-else statements for every question are to see if the user inputted a correct or incorrect answer.  Based on that, it gives a point or ot doesn't.
+if (ans1 == "False" or ans1 =="F" or ans1 =='f' or ans1 =='false'):
+  print ("That's right!")
+  score.append(1)
+  #if the answer is right, add one to the array (give 1 point)
+  print ("")
+
+else: 
+  print ("")
+  print ("Sorry, that's incorrect")
+  score.append(0)
+  
+print ("")
+
+print ("A woman was actually the first programmer.")
+
+print ('')
+
+
+print ("Question 2:")
+
+time.sleep(pauseTime)
+
+print ("What was the name of the first programmer?")
+
+print ("a. Charlotta")
+print ("b. Louisa")
+print ("c. Ada")
+print ("d. None of the Above")
+
+print ("")
+ans2 = input()
+
+if (ans2=='c' or ans2 =='C'):
+  print ("Good job!")
+  score.append(1)
+else: 
+  print("Sorry, that's wrong!")
+  score.append(0)
+print('')
+print ("Her name was Ada Lovelace or Ada Countess of Lovelace.")
+print('')
+
+time.sleep(pauseTime)
+
+print ("Question 3.")
+time.sleep(pauseTime)
+
+print ("What percentage of technology workers in Maryland are women?")
+print ("a. 50%")
+print ("b. 33.6%")
+print ("c. 42.9%")
+print ("d. 59.1%")
+# quantitative data
+ans4 = input()
+print ('')
+if (ans4=='b' or ans4 =='B'):
+  print ("Good job!")
+  score.append(1)
+else: 
+  print ("That's incorrect")
+  score.append(0)
+print("The correct answer is 33.6% That means that for every ")
+print ("10 technology workers, about 7 of them are men and three are women.")
+
+print ("")
+time.sleep(pauseTime)
+print ("Question 4:")
+
+print('What percentage of the workforce is made up of women? (higher or lower question).')
+print("You have three tries!")
+tries =0
+ans5=-1
+while (ans5 !=47 and tries<3):
+  ans5=int(input())
+  tries+=1
+  if(ans5>47):
+    print("Too high!")
+  if(ans5<47):
+    print ("Too low!")
+  
+
+print ("")
+
+if(ans5==47):
+  score.append(1)
+  print ("Nice!")
+else:
+  score.append(0)
+    
+print ("The correct answer is 47%")
+print('Women make up almost half the workforce but...')
+print ("")
+
+
+print('Question 5:')
+time.sleep(pauseTime)
+print('What percentage of computing roles do women hold as of 2015?')
+
+print('a. 30%')
+print('b. 40%')
+print('c. 20%')
+print('d. 25%')
+answer=input()
+if(answer == 'd' or answer =='D'):
+  score.append(1)
+  print(":) Nice!")
+else:
+  print ("Sorry, that's incorrect")
+  print ("The correct answer is d. 25%")
+  score.append(0)
+print ("")
+print("That means that women make up almost half of the workforce, but do just ")
+print("one out of every four computing jobs")
+
+print ("")
+print ("Question 6:")
+time.sleep(pauseTime)
+print ("What is the percentage of female employees in the workforce at Facebook?")
+print ("What percentage of their tech jobs are held by women?")
+print ("a. 50%, 40%")
+print ("b. 60%, 30%")
+print ('c. 37%, 23%')
+print ('d. 42%, 29%')
+ans7 =input()
+if (ans7 == 'c' or ans7=='C'):
+  print ("Nice job!")
+  score.append(1)
+else:
+  print ("Nope!")
+  score.append(0)
+
+print ("Facebook is a major tech company, and the percentage of their workforce which are female employees is only 37%.  Even worse,only 23% of their technology jobs are held by women.  This highlights the clear gap between men and ")
+print("women in technology jobs. ")
+
+
+print ('Question 7:')
+time.sleep(pauseTime)
+print ("")
+print ("On which continent do women work in the highest percentage of tech leadership roles?")
+print ('a. North America')
+print ('b. South America')
+print ('c. Europe and Africa')
+print ('d. Asia')
+ans8=input()
+if(ans8 =='a' or ans8=='A'):
+  print ("Nicely done!")
+  score.append(1)
+else:
+  score.append(0)
+print ("The correct answer is North America. 18.1% of their tech leadership jobs are held by women and that is higher than most of the other continents")
+print ('')
+print ("Let's check out the graph!")
+print ("")
+#Below makes a bar graph
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
+
+
+objects = ('North America', 'South America', 'Africa and Europe', 'Asia')
+y_pos = np.arange(len(objects))
+performance = [18.1, 13.4, 11.2, 11.5]
+
+plt.bar(y_pos, performance, align='center', alpha=0.5)
+plt.xticks(y_pos, objects)
+plt.ylabel('Tech leadership jobs held by women (%)')
+plt.title('Percentage of tech leadership jobs held by women on various continents')
+
+plt.savefig('womenintech.png')
+
+print ('')
+print ("Thank you for taking this quiz! I hope you learned a bit about the gender gap in STEM! ")
+
+#for each number there is in the array, add it to the total.
+# Divide that total by total number of questions (7) and then multiply by 100 to get the percentage. 
+total=0
+for num in score:
+  total+=num
+percent =(total /7)*100
+percent = round(percent)
+print ("Your score is: "+str(percent)+"%")
+
+
+
+
+
+
+
+
+
